@@ -15,6 +15,7 @@ const startPlugins = function({ pluginsOptions, buildDir, nodePath, childEnv }) 
 }
 
 const startPlugin = async function({ buildDir, nodePath, childEnv }) {
+  console.log('Try this')
   const childProcess = execa.node(CHILD_MAIN_FILE, {
     cwd: buildDir,
     preferLocal: true,
