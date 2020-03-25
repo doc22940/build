@@ -1,4 +1,5 @@
 const execa = require('execa')
+const pathExists = require('path-exists')
 
 const { getEventFromChild } = require('./ipc')
 
@@ -15,7 +16,8 @@ const startPlugins = function({ pluginsOptions, buildDir, nodePath, childEnv }) 
 }
 
 const startPlugin = async function({ buildDir, nodePath, childEnv }) {
-  console.log('Try this')
+  console.log('Debugging', nodePath, buildDir)
+  console.log(await pathExists(nodePath))
   const childProcess = execa.node(CHILD_MAIN_FILE, {
     cwd: buildDir,
     preferLocal: true,
